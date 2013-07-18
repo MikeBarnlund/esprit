@@ -1,0 +1,23 @@
+# BEGIN Security
+# AuthUserFile /Users/mikebarnlund/workspaces/spiraldesign/sd-trunk/website/.htpasswd
+# AuthUserFile /home/barnlund/public_html/sd-trunk/.htpasswd
+# AuthGroupFile /dev/null
+# AuthName "AuthName"
+# AuthType Basic
+#
+# <Limit GET POST>
+# require valid-user
+# </Limit>
+# End Security
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
